@@ -58,10 +58,10 @@ public class PlayerCharacter {
     }
 
     public String toString() {
-        return "Player character : \n"
+        return "PLAYER CHARACTER : \n"
                 + "Name: " + name + "\n"
                 + "Type: " + type + "\n"
-                + "HP: " + HP + "\n"
-                + "AP: " + AP + "\n";
+                + "Hit Points: " + HP + "\n"
+                + "Attack Points: " + AP + "\n";
     }
 }
