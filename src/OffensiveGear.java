@@ -5,27 +5,15 @@ public class OffensiveGear {
     private int attackLevel;
     private String name;
 
-    public OffensiveGear(String item, String name, int attackLevel) {
-        this.item = item;
-        this.name = name;
-        this.attackLevel = attackLevel;
+    public OffensiveGear(String item) {
 
-        if(Objects.equals(item, "Warrior")){
-            this.item = "Weapon";
-            this.name = "Sword";
-            this.attackLevel = 15;
-        } else if(Objects.equals(item, "Magician")){
-            this.item = "Spell";
-            this.name = "Fire Ball";
-            this.attackLevel = 22;
+        if (Objects.equals(item, "Weapon")) {
+            name = "Iron Sword";
+            attackLevel = 5;
+        } else if (Objects.equals(item, "Spell")) {
+            name = "Fire Ball";
+            attackLevel = 7;
         }
-    }
-
-    public String getItem() {
-        return item;
-    }
-    public void setItem(String item) {
-        this.item = item;
     }
 
     public String getName() {
@@ -33,6 +21,13 @@ public class OffensiveGear {
     }
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getItem() {
+        return item;
+    }
+    public void setItem(String item) {
+        this.item = item;
     }
 
     public int getAttackLevel() {
@@ -45,7 +40,6 @@ public class OffensiveGear {
     public String toString() {
         return "OFFENCE : \n"
                 + "Name: " + name + "\n"
-                + "Type: " + item + "\n"
                 + "Attack Level: " + attackLevel + "\n";
     }
 }

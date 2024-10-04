@@ -1,9 +1,18 @@
 public class Main {
     public static void main(String[] args) {
-        PlayerCharacter player = new PlayerCharacter("Julien","Warrior");
+        // Appel des méthodes du menu pour obtenir le nom et le type du joueur
+        String userName = Menu.getUserNameOfThePlayer();
+        String playerType = Menu.getTypeOfThePlayer();
+
+        // Créer un PlayerCharacter avec les informations obtenues du menu
+        PlayerCharacter player = new PlayerCharacter(userName, playerType);
+
+        // Afficher les informations du joueur
         System.out.println(player);
 
-        OffensiveGear offence = new OffensiveGear("Weapon", "Sword", 15);
-        System.out.println(offence);
+        PlayerCharacter PlayerCharacter = new PlayerCharacter();
+        String menuOfGame = Menu.gameMenu(PlayerCharacter, player);
+
+        System.out.println(menuOfGame);
     }
 }
