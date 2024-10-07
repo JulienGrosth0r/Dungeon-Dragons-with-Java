@@ -1,18 +1,26 @@
 public class Main {
     public static void main(String[] args) {
-        // Appel des méthodes du menu pour obtenir le nom et le type du joueur
-        String userName = Menu.getUserNameOfThePlayer();
-        String playerType = Menu.getTypeOfThePlayer();
+        // Créer un personnage par défaut
+        PlayerCharacter player = new PlayerCharacter();
 
-        // Créer un PlayerCharacter avec les informations obtenues du menu
-        PlayerCharacter player = new PlayerCharacter(userName, playerType);
+        // Créer une instance du menu en passant le joueur
+        Menu menu = new Menu();
 
-        // Afficher les informations du joueur
-        System.out.println(player);
+        // Obtenir le nom et le type de personnage depuis le menu
+        String playerName = menu.getUserNameOfThePlayer();
+        String playerType = menu.getTypeOfThePlayer();
+        player = new PlayerCharacter(playerName, playerType);
+        menu.setPlayer(player);
 
-        PlayerCharacter PlayerCharacter = new PlayerCharacter();
-        String menuOfGame = Menu.gameMenu(PlayerCharacter, player);
+        // Mettre à jour le PlayerCharacter avec le nom et le type
+        player.setName(playerName);
+        player.setType(playerType);
 
-        System.out.println(menuOfGame);
+        // Démarrer le menu du jeu
+        menu.gameMenu();
+
+        // Instancier la classe Game pour le lancer de dé
+        Game game = new Game();
+        game.rollDie();  // Simuler le lancer de dé
     }
 }
