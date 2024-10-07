@@ -13,21 +13,20 @@ public class Game {
 
     // Méthode pour simuler le lancer de dé
     public int rollDie() {
-        int dieRoll = getRandom(1, 6);  // Lancer un dé à 6 faces
-        System.out.println("Hero's turn: " + dieRoll);
-        return dieRoll;
+        int diceRoll = getRandom(1, 6);  // Lancer un dé à 6 faces
+        System.out.println("Hero's turn: " + diceRoll);
+        return diceRoll;
     }
 
     // Méthode pour faire avancer le joueur
     public void movePlayer() {
-        int dieRoll = rollDie();  // Lancer le dé
-        playerPosition += dieRoll;  // Avancer le joueur
+        int diceRoll = rollDie();  // Lancer le dé
+        playerPosition += diceRoll;  // Avancer le joueur
 
         // Vérifier si le joueur a atteint ou dépassé la case 64
         if (playerPosition >= 64) {
             playerPosition = 64;  // Limiter à 64
             System.out.println("Congratulations! You've reached the end of the game at position " + playerPosition + "!");
-            // Tu peux ici ajouter une logique pour terminer le jeu, comme retourner à un menu ou afficher un message final.
         } else {
             System.out.println("Player is now at position: " + playerPosition + "/64");
         }
