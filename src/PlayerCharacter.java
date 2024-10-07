@@ -1,3 +1,6 @@
+import Gear.DefensiveGear;
+import Gear.OffensiveGear;
+
 import java.util.Objects;
 
 public class PlayerCharacter {

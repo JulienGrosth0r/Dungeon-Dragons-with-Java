@@ -29,7 +29,7 @@ public class Game {
             System.out.println("Congratulations! You've reached the end of the game at position " + playerPosition + "!");
             // Tu peux ici ajouter une logique pour terminer le jeu, comme retourner à un menu ou afficher un message final.
         } else {
-            System.out.println("Player is now at position: " + playerPosition);
+            System.out.println("Player is now at position: " + playerPosition + "/64");
         }
     }
 
