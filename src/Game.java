@@ -14,7 +14,7 @@ public class Game {
     // Méthode pour simuler le lancer de dé
     public int rollDie() {
         int diceRoll = getRandom(1, 6);  // Lancer un dé à 6 faces
-        System.out.println("Hero's turn: " + diceRoll);
+        System.out.println("Hero's dice roll: " + diceRoll);
         return diceRoll;
     }
 

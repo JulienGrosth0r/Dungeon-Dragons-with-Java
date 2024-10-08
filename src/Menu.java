@@ -50,13 +50,13 @@ public class Menu {
                 wait(400);
                 System.out.println("You chose WARRIOR\n"
                         + "You are a warrior then, armed to the teeth. Great!");
-                playerType = "Warrior"; // Type du joueur
+                playerType = "Character.Warrior"; // Type du joueur
                 break;
             } else if (choice == 2) {
                 wait(400);
                 System.out.println("You chose MAGICIAN\n"
                         + "An expert in arcane magics, magnificent!");
-                playerType = "Magician"; // Type du joueur
+                playerType = "Character.Magician"; // Type du joueur
                 break;
             } else {
                 System.out.println("This class does not exist, try again...");

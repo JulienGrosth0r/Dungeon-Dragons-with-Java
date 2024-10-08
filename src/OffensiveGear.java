@@ -1,5 +1,3 @@
-package Gear;
-
 import java.util.Objects;
 
 public class OffensiveGear {
@@ -8,40 +6,41 @@ public class OffensiveGear {
     private String name;
 
     public OffensiveGear(String item) {
-
         if (Objects.equals(item, "Weapon")) {
-            name = "Iron Sword";
-            attackLevel = 5;
+            this.name = "Iron Sword";
+            this.attackLevel = 5;
         } else if (Objects.equals(item, "Spell")) {
-            name = "Fire Ball";
-            attackLevel = 7;
+            this.name = "Fire Ball";
+            this.attackLevel = 7;
         }
+
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
 
     public String getItem() {
-        return item;
+        return this.item;
     }
+
     public void setItem(String item) {
         this.item = item;
     }
 
     public int getAttackLevel() {
-        return attackLevel;
+        return this.attackLevel;
     }
+
     public void setAttackLevel(int attackLevel) {
         this.attackLevel = attackLevel;
     }
 
     public String toString() {
-        return "OFFENCE : \n"
-                + "Name: " + name + "\n"
-                + "Attack Level: " + attackLevel + "\n";
+        return "OFFENCE : \nName: " + this.name + "\nAttack Level: " + this.attackLevel + "\n";
     }
 }

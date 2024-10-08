@@ -1,6 +1,3 @@
-import Gear.DefensiveGear;
-import Gear.OffensiveGear;
-
 import java.util.Objects;
 
 public class PlayerCharacter {
@@ -17,24 +14,24 @@ public class PlayerCharacter {
     }
 
     public PlayerCharacter(String name) {
-        this(name, "Warrior");
+        this(name, "Character.Warrior");
     }
 
     public PlayerCharacter(String name, String type) {
         this.name = name;
         this.type = type;
 
-        if(Objects.equals(type, "Warrior")){
+        if (Objects.equals(type, "Character.Warrior")) {
             this.HP = 10;
             this.AP = 10;
             this.offensiveGear = new OffensiveGear("Weapon");
             this.defensiveGear = new DefensiveGear("Protection");
 
-        } else if(Objects.equals(type, "Magician")){
+        } else if (Objects.equals(type, "Character.Magician")) {
             this.HP = 6;
             this.AP = 15;
             this.offensiveGear = new OffensiveGear("Spell");
-            this.defensiveGear = new DefensiveGear("protectiveSpell");
+            this.defensiveGear = new DefensiveGear("ProtectiveSpell");
         }
     }
 
@@ -42,6 +39,7 @@ public class PlayerCharacter {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -49,6 +47,7 @@ public class PlayerCharacter {
     public String getType() {
         return type;
     }
+
     public void setType(String type) {
         this.type = type;
     }
@@ -56,6 +55,7 @@ public class PlayerCharacter {
     public int getHP() {
         return HP;
     }
+
     public void setHP(int HP) {
         this.HP = HP;
     }
@@ -63,10 +63,10 @@ public class PlayerCharacter {
     public int getAP() {
         return AP;
     }
+
     public void setAP(int AP) {
         this.AP = AP;
     }
-
 
 
     public String toString() {

@@ -1,5 +1,3 @@
-package Gear;
-
 import java.util.Objects;
 
 public class DefensiveGear {
@@ -8,40 +6,41 @@ public class DefensiveGear {
     private String name;
 
     public DefensiveGear(String item) {
-
         if (Objects.equals(item, "Protection")) {
-            name = "Iron Shield";
-            defenceLevel = 5;
-        } else if (Objects.equals(item, "protectiveSpell")) {
-            name = "Magic Bubble";
-            defenceLevel = 7;
+            this.name = "Iron Shield";
+            this.defenceLevel = 5;
+        } else if (Objects.equals(item, "ProtectiveSpell")) {
+            this.name = "Magic Bubble";
+            this.defenceLevel = 7;
         }
+
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
 
     public String getItem() {
-        return item;
+        return this.item;
     }
+
     public void setItem(String item) {
         this.item = item;
     }
 
     public int getDefenceLevel() {
-        return defenceLevel;
+        return this.defenceLevel;
     }
+
     public void setAttackLevel(int attackLevel) {
         this.defenceLevel = attackLevel;
     }
 
     public String toString() {
-        return "DEFENCE : \n"
-                + "Name: " + name + "\n"
-                + "Defence Level: " + defenceLevel + "\n";
+        return "DEFENCE : \nName: " + this.name + "\nDefence Level: " + this.defenceLevel + "\n";
     }
 }
