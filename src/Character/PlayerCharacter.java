@@ -5,13 +5,13 @@ import Gear.OffensiveGear;
 
 import java.util.Objects;
 
-public class PlayerCharacter {
+public abstract class PlayerCharacter {
     private String name;
     private String type;
     private int HP;
     private int AP;
-    private OffensiveGear offensiveGear;
-    private DefensiveGear defensiveGear;
+    protected OffensiveGear offensiveGear;
+    protected DefensiveGear defensiveGear;
 
 
     public PlayerCharacter() {
@@ -25,19 +25,6 @@ public class PlayerCharacter {
     public PlayerCharacter(String name, String type) {
         this.name = name;
         this.type = type;
-
-        if (Objects.equals(type, "Warrior")) {
-            this.HP = 10;
-            this.AP = 10;
-            this.offensiveGear = new OffensiveGear("Weapon");
-            this.defensiveGear = new DefensiveGear("Protection");
-
-        } else if (Objects.equals(type, "Magician")) {
-            this.HP = 6;
-            this.AP = 15;
-            this.offensiveGear = new OffensiveGear("Spell");
-            this.defensiveGear = new DefensiveGear("ProtectiveSpell");
-        }
     }
 
 
@@ -79,9 +66,8 @@ public class PlayerCharacter {
                 + "Name: " + name + "\n"
                 + "Type: " + type + "\n"
                 + "Hit Points: " + HP + "\n"
-                + "Attack Points: " + AP + "\n\n"
-                + offensiveGear.toString() + "\n"
+                + "Attack Points: " + AP
+                + "\n\n" + offensiveGear.toString() + "\n"
                 + defensiveGear.toString() + "\n";
-
     }
 }
