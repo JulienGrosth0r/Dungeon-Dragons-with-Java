@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import Character.PlayerCharacter;
 
 public class Menu {
     // Attributs privés
@@ -32,7 +33,7 @@ public class Menu {
         String userName = scanner.nextLine();
         wait(400);
         System.out.println("Ok, so your name is " + userName + "!");
-        return userName; // Retourner le nom pour le passer au PlayerCharacter
+        return userName; // Retourner le nom pour le passer au Character.PlayerCharacter
     }
 
     // Méthode pour obtenir le type du joueur
@@ -50,20 +51,20 @@ public class Menu {
                 wait(400);
                 System.out.println("You chose WARRIOR\n"
                         + "You are a warrior then, armed to the teeth. Great!");
-                playerType = "Character.Warrior"; // Type du joueur
+                playerType = "Warrior"; // Type du joueur
                 break;
             } else if (choice == 2) {
                 wait(400);
                 System.out.println("You chose MAGICIAN\n"
                         + "An expert in arcane magics, magnificent!");
-                playerType = "Character.Magician"; // Type du joueur
+                playerType = "Magician"; // Type du joueur
                 break;
             } else {
                 System.out.println("This class does not exist, try again...");
             }
         }
 
-        return playerType; // Retourner le type pour le passer au PlayerCharacter
+        return playerType; // Retourner le type pour le passer au Character.PlayerCharacter
     }
 
     // Méthode pour afficher le menu de jeu

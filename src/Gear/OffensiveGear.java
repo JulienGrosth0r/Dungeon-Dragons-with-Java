@@ -1,3 +1,5 @@
+package Gear;
+
 import java.util.Objects;
 
 public class OffensiveGear {

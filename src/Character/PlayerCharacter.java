@@ -1,3 +1,8 @@
+package Character;
+
+import Gear.DefensiveGear;
+import Gear.OffensiveGear;
+
 import java.util.Objects;
 
 public class PlayerCharacter {
@@ -14,20 +19,20 @@ public class PlayerCharacter {
     }
 
     public PlayerCharacter(String name) {
-        this(name, "Character.Warrior");
+        this(name, "Warrior");
     }
 
     public PlayerCharacter(String name, String type) {
         this.name = name;
         this.type = type;
 
-        if (Objects.equals(type, "Character.Warrior")) {
+        if (Objects.equals(type, "Warrior")) {
             this.HP = 10;
             this.AP = 10;
             this.offensiveGear = new OffensiveGear("Weapon");
             this.defensiveGear = new DefensiveGear("Protection");
 
-        } else if (Objects.equals(type, "Character.Magician")) {
+        } else if (Objects.equals(type, "Magician")) {
             this.HP = 6;
             this.AP = 15;
             this.offensiveGear = new OffensiveGear("Spell");
