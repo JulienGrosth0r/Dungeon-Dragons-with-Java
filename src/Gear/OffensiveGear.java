@@ -1,21 +1,13 @@
 package Gear;
 
-import java.util.Objects;
-
-public class OffensiveGear {
+public abstract class OffensiveGear implements Interactable {
     private String item;
     private int attackLevel;
     private String name;
 
-    public OffensiveGear(String item) {
-        if (Objects.equals(item, "Weapon")) {
-            this.name = "Iron Sword";
-            this.attackLevel = 5;
-        } else if (Objects.equals(item, "Spell")) {
-            this.name = "Fire Ball";
-            this.attackLevel = 7;
-        }
-
+    public OffensiveGear(String name, int attackLevel) {
+        this.name = name;
+        this.attackLevel = attackLevel;
     }
 
     public String getName() {

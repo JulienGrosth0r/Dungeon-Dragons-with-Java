@@ -1,14 +1,14 @@
 package Character;
 
-import Gear.ProtectiveSpell;
-import Gear.Spell;
+import Gear.MagicianGear.Shockwave;
+import Gear.MagicianGear.SmallMagicBubble;
 
 public class Magician extends PlayerCharacter {
     public Magician() {
         super("Anonymous Player", "Magician");
         this.setHP(6);
         this.setAP(15);
-        this.offensiveGear = new Spell();  // Utiliser la classe Spell
-        this.defensiveGear = new ProtectiveSpell();  // Utiliser la classe ProtectiveSpell
+        this.offensiveGear = new Shockwave();
+        this.defensiveGear = new SmallMagicBubble();
     }
 }

@@ -110,7 +110,7 @@ public class Menu {
     }
 
     // Méthode pour proposer de rejouer ou quitter
-    private void offerReplay() {
+    public void offerReplay() {
         while (true) {
             System.out.println("Would you like to:\n"
                     + "1) Play again\n"

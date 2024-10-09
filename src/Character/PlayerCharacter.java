@@ -2,8 +2,7 @@ package Character;
 
 import Gear.DefensiveGear;
 import Gear.OffensiveGear;
-
-import java.util.Objects;
+import Gear.Potions.Potion;
 
 public abstract class PlayerCharacter {
     private String name;
@@ -12,6 +11,7 @@ public abstract class PlayerCharacter {
     private int AP;
     protected OffensiveGear offensiveGear;
     protected DefensiveGear defensiveGear;
+    protected Potion potion;
 
 
     public PlayerCharacter() {

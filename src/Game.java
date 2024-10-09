@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Game {
     private int playerPosition;  // Position actuelle du joueur
 

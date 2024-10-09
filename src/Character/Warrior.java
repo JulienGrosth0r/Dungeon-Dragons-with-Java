@@ -1,14 +1,14 @@
 package Character;
 
-import Gear.Protection;
-import Gear.Weapon;
+import Gear.WarriorGear.WoodenClub;
+import Gear.WarriorGear.WoodenShield;
 
 public class Warrior extends PlayerCharacter {
     public Warrior() {
         super("Anonymous Player", "Warrior");
         this.setHP(10);
         this.setAP(10);
-        this.offensiveGear = new Weapon();  // Utiliser la classe Weapon
-        this.defensiveGear = new Protection();  // Utiliser la classe Protection
+        this.offensiveGear = new WoodenClub();
+        this.defensiveGear = new WoodenShield();
     }
 }

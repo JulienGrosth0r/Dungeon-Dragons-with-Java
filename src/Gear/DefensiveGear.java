@@ -1,21 +1,13 @@
 package Gear;
 
-import java.util.Objects;
-
-public class DefensiveGear {
+public abstract class DefensiveGear implements Interactable {
     private String item;
     private int defenceLevel;
     private String name;
 
-    public DefensiveGear(String item) {
-        if (Objects.equals(item, "Protection")) {
-            this.name = "Iron Shield";
-            this.defenceLevel = 5;
-        } else if (Objects.equals(item, "ProtectiveSpell")) {
-            this.name = "Magic Bubble";
-            this.defenceLevel = 7;
-        }
-
+    public DefensiveGear(String name, int defenceLevel) {
+        this.name = name;
+        this.defenceLevel = defenceLevel;
     }
 
     public String getName() {
