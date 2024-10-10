@@ -1,6 +1,6 @@
-package Enemies;
+package enemies;
 
-import Character.PlayerCharacter;
+import character.PlayerCharacter;
 
 public class Goblin extends Enemy{
     public Goblin() {

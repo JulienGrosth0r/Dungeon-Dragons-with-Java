@@ -1,8 +1,6 @@
-package Gear.Potions;
+package gear.potions;
 
-import Gear.Interactable;
-
-import java.io.Serializable;
+import gear.Interactable;
 
 public abstract class Potion implements Interactable {
     private String potionName;

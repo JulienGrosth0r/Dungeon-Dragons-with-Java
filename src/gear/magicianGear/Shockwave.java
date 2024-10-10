@@ -1,7 +1,7 @@
-package Gear.MagicianGear;
+package gear.magicianGear;
 
-import Character.PlayerCharacter;
-import Gear.OffensiveGear;
+import character.PlayerCharacter;
+import gear.OffensiveGear;
 
 public class Shockwave extends OffensiveGear {
     public Shockwave() {

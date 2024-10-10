@@ -1,6 +1,6 @@
-package Enemies;
+package enemies;
 
-import Gear.Interactable;
+import gear.Interactable;
 
 public abstract class Enemy implements Interactable {
     private String enemyName;

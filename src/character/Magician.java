@@ -1,7 +1,7 @@
-package Character;
+package character;
 
-import Gear.MagicianGear.Shockwave;
-import Gear.MagicianGear.SmallMagicBubble;
+import gear.magicianGear.Shockwave;
+import gear.magicianGear.SmallMagicBubble;
 
 public class Magician extends PlayerCharacter {
     public Magician() {

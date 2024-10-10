@@ -1,7 +1,7 @@
-package Character;
+package character;
 
-import Gear.WarriorGear.WoodenClub;
-import Gear.WarriorGear.WoodenShield;
+import gear.warriorGear.WoodenClub;
+import gear.warriorGear.WoodenShield;
 
 public class Warrior extends PlayerCharacter {
     public Warrior() {

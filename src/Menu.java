@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import Character.PlayerCharacter;
+import character.PlayerCharacter;
 
 public class Menu {
     // Attributs privés

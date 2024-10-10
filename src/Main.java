@@ -1,7 +1,7 @@
 import java.util.Objects;
-import Character.PlayerCharacter;
-import Character.Magician;
-import Character.Warrior;
+import character.PlayerCharacter;
+import character.Magician;
+import character.Warrior;
 
 public class Main {
     public static void main(String[] args) {

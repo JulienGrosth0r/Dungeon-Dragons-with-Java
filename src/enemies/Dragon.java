@@ -1,6 +1,6 @@
-package Enemies;
+package enemies;
 
-import Character.PlayerCharacter;
+import character.PlayerCharacter;
 
 public class Dragon extends Enemy{
     public Dragon() {

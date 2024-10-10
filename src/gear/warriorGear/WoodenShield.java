@@ -1,7 +1,7 @@
-package Gear.WarriorGear;
+package gear.warriorGear;
 
-import Character.PlayerCharacter;
-import Gear.DefensiveGear;
+import character.PlayerCharacter;
+import gear.DefensiveGear;
 
 public class WoodenShield extends DefensiveGear {
     public WoodenShield() {

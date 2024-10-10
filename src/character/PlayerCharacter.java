@@ -1,8 +1,8 @@
-package Character;
+package character;
 
-import Gear.DefensiveGear;
-import Gear.OffensiveGear;
-import Gear.Potions.Potion;
+import gear.DefensiveGear;
+import gear.OffensiveGear;
+import gear.potions.Potion;
 
 public abstract class PlayerCharacter {
     private String name;

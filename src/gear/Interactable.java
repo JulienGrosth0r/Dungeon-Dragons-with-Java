@@ -1,6 +1,6 @@
-package Gear;
+package gear;
 
-import Character.PlayerCharacter;
+import character.PlayerCharacter;
 
 public interface Interactable {
     void interact(PlayerCharacter playerCharacter);

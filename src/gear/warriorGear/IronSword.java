@@ -1,7 +1,7 @@
-package Gear.WarriorGear;
+package gear.warriorGear;
 
-import Character.PlayerCharacter;
-import Gear.OffensiveGear;
+import character.PlayerCharacter;
+import gear.OffensiveGear;
 
 public class IronSword extends OffensiveGear {
 

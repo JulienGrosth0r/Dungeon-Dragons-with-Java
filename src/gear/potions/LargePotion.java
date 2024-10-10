@@ -1,6 +1,6 @@
-package Gear.Potions;
+package gear.potions;
 
-import Character.PlayerCharacter;
+import character.PlayerCharacter;
 
 public class LargePotion extends Potion {
     public LargePotion() {

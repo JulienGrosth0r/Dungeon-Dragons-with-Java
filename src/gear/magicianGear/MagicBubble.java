@@ -1,7 +1,7 @@
-package Gear.MagicianGear;
+package gear.magicianGear;
 
-import Character.PlayerCharacter;
-import Gear.DefensiveGear;
+import character.PlayerCharacter;
+import gear.DefensiveGear;
 
 public class MagicBubble extends DefensiveGear {
     public MagicBubble() {

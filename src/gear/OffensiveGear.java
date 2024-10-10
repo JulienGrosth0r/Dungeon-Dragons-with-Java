@@ -1,13 +1,13 @@
-package Gear;
+package gear;
 
-public abstract class DefensiveGear implements Interactable {
+public abstract class OffensiveGear implements Interactable {
     private String item;
-    private int defenceLevel;
+    private int attackLevel;
     private String name;
 
-    public DefensiveGear(String name, int defenceLevel) {
+    public OffensiveGear(String name, int attackLevel) {
         this.name = name;
-        this.defenceLevel = defenceLevel;
+        this.attackLevel = attackLevel;
     }
 
     public String getName() {
@@ -26,15 +26,15 @@ public abstract class DefensiveGear implements Interactable {
         this.item = item;
     }
 
-    public int getDefenceLevel() {
-        return this.defenceLevel;
+    public int getAttackLevel() {
+        return this.attackLevel;
     }
 
     public void setAttackLevel(int attackLevel) {
-        this.defenceLevel = attackLevel;
+        this.attackLevel = attackLevel;
     }
 
     public String toString() {
-        return "DEFENCE : \nName: " + this.name + "\nDefence Level: " + this.defenceLevel + "\n";
+        return "OFFENCE : \nName: " + this.name + "\nAttack Level: " + this.attackLevel + "\n";
     }
 }
