@@ -4,6 +4,6 @@ import gear.Interactable;
 public class CaseVide implements Interactable {
     @Override
     public void interact(PlayerCharacter playerCharacter) {
-        System.out.println("EMPTY");
+        System.out.println("The room is EMPTY");
     }
 }

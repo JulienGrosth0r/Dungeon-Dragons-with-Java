@@ -1,8 +1,12 @@
+import character.Magician;
+import character.PlayerCharacter;
+import character.Warrior;
 import enemies.Dragon;
 import enemies.Enemy;
 import enemies.Goblin;
 import enemies.Sorcerer;
 import gear.DefensiveGear;
+import gear.Interactable;
 import gear.magicianGear.FireBall;
 import gear.magicianGear.LightningBolt;
 import gear.OffensiveGear;
@@ -15,21 +19,72 @@ import gear.warriorGear.IronSword;
 import gear.warriorGear.Mace;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Game {
     private int playerPosition;  // Position actuelle du joueur
-    private ArrayList board;
+    private ArrayList<Interactable> board;
+    PlayerCharacter player;
+    Menu menu;
 
     // Constructeur pour initialiser la position du joueur
     public Game() {
-        this.playerPosition = 1;  // Commencer sur la case 1
+        this.playerPosition = 0;  // Commencer sur la case 0
+        this.menu = new Menu();
         this.board = new ArrayList<>();
     }
 
-//    // Initialisation du plateau de jeu
-//    private void initBoard(ArrayList board) {
-//
-//    }
+    public void runGame() {
+        fillBoard(board);
+        createCharacter(menu.getUserNameOfThePlayer(), menu.getTypeOfThePlayer());
+        int choice = menu.gameMenu();
+        while (playerPosition != 64) {
+            executeChoiceMenu(choice);
+            movePlayer();
+            wait(400);
+        }
+        menu.victoryText();
+    }
+
+    // Méthode d'attente entre chaque commande du joueur
+    private void wait(int ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    // Méthode pour obtenir un nombre aléatoire entre min et max, inclus
+    private int getRandom(int min, int max) {
+        return (int) (Math.random() * (max - min + 1)) + min;
+    }
+
+    // Méthode pour simuler le lancer de dé
+    public int rollDie() {
+        int diceRoll = getRandom(1, 6);  // Lancer un dé à 6 faces
+        System.out.println("Hero's dice roll: " + diceRoll);
+        return diceRoll;
+    }
+
+    // Méthode pour faire avancer le joueur
+    public void movePlayer() {
+        int diceRoll = rollDie();  // Lancer le dé
+        playerPosition += diceRoll;  // Avancer le joueur
+
+        // Vérifier si le joueur a atteint ou dépassé la case 64
+        if (playerPosition >= 64) {
+            playerPosition = 64;  // Limiter à 64
+            System.out.println("Congratulations! You've reached the end of the game at position " + playerPosition + "!");
+        } else {
+            System.out.println("Player is now at position: " + playerPosition + "/64");
+        }
+    }
+
+    // Getter pour obtenir la position actuelle du joueur
+    public int getPlayerPosition() {
+        return playerPosition;
+    }
 
     private void fillBoard(ArrayList board) {
         board.add(new LightningBolt());  // Case 1
@@ -96,37 +151,52 @@ public class Game {
         board.add(new Dragon());         // Case 62
         board.add(new CaseVide());       // Case 63
         board.add(new CaseVide());       // Case 64
-
     }
 
-    // Méthode pour obtenir un nombre aléatoire entre min et max, inclus
-    private int getRandom(int min, int max) {
-        return (int) (Math.random() * (max - min + 1)) + min;
+    private void interactWithCase(int playerPosition, PlayerCharacter player) {
+        Interactable objet = board.get(playerPosition);
+        objet.interact(player);
     }
 
-    // Méthode pour simuler le lancer de dé
-    public int rollDie() {
-        int diceRoll = getRandom(1, 6);  // Lancer un dé à 6 faces
-        System.out.println("Hero's dice roll: " + diceRoll);
-        return diceRoll;
-    }
+    private void createCharacter(String name, String type) {
 
-    // Méthode pour faire avancer le joueur
-    public void movePlayer() {
-        int diceRoll = rollDie();  // Lancer le dé
-        playerPosition += diceRoll;  // Avancer le joueur
-
-        // Vérifier si le joueur a atteint ou dépassé la case 64
-        if (playerPosition >= 64) {
-            playerPosition = 64;  // Limiter à 64
-            System.out.println("Congratulations! You've reached the end of the game at position " + playerPosition + "!");
-        } else {
-            System.out.println("Player is now at position: " + playerPosition + "/64");
+        switch (type) {
+            case "Warrior":
+                player = new Warrior(name);
+                break;
+            case "Magician":
+                player = new Magician(name);
+                break;
         }
     }
 
-    // Getter pour obtenir la position actuelle du joueur
-    public int getPlayerPosition() {
-        return playerPosition;
+
+    private void executeChoiceMenu(int choice) {
+
+        switch (choice) {
+            case 1:
+                wait(400);
+                System.out.println("Rolling the dice...");
+                break;
+
+            case 2:
+                wait(400);
+                System.out.println("Inspecting your character:");
+                System.out.println(player.toString());  // Affiche les détails du personnage
+                break;
+
+            case 3:
+                wait(400);
+                System.out.println("Your soul evaporates into the nether... Until we meet again!");
+                System.exit(0);
+
+            default:
+                wait(400);
+                System.out.println("Invalid choice, please try again.");
+                menu.gameMenu();
+                executeChoiceMenu(menu.gameMenu());
+        }
     }
+
+
 }

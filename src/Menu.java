@@ -10,7 +10,6 @@ public class Menu {
     // Constructeur
     public Menu() {
         this.scanner = new Scanner(System.in);  // Initialisation du scanner
-        this.game = new Game();  // Instancier le jeu
     }
 
     public void setPlayer(PlayerCharacter player) {
@@ -68,44 +67,14 @@ public class Menu {
     }
 
     // Méthode pour afficher le menu de jeu
-    public void gameMenu() {
+    public int gameMenu() {
         while (true) {
             System.out.println("Now, what would you like to do?\n"
                     + "1) Roll the dice\n"
                     + "2) Inspect my character\n"
                     + "3) Exit Game\n");
 
-            int choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1:
-                    wait(400);
-                    System.out.println("Rolling the dice...");
-
-                    // Appel de la méthode movePlayer qui inclut le lancer de dé et la mise à jour de la position
-                    game.movePlayer(); // Appelle la méthode pour faire avancer le joueur
-
-                    // Vérifier si le joueur a gagné
-                    if (game.getPlayerPosition() >= 64) {
-                        offerReplay(); // Appel de la méthode pour offrir la possibilité de rejouer
-                    }
-                    break;
-
-                case 2:
-                    wait(400);
-                    System.out.println("Inspecting your character:");
-                    System.out.println(player.toString());  // Affiche les détails du personnage
-                    break;
-
-                case 3:
-                    wait(400);
-                    System.out.println("Your soul evaporates into the nether... Until we meet again!");
-                    return;  // Sortir de la boucle et de la méthode
-
-                default:
-                    wait(400);
-                    System.out.println("Invalid choice, please try again.");
-            }
+            return scanner.nextInt();
         }
     }
 
@@ -131,5 +100,10 @@ public class Menu {
                     System.out.println("Invalid choice, please try again.");
             }
         }
+    }
+
+    public void victoryText() {
+        System.out.println("Winner winner chicken dinner! You have defeated the dungeon!");
+        offerReplay();
     }
 }
