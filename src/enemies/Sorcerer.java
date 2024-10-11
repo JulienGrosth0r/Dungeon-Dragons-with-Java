@@ -9,6 +9,7 @@ public class Sorcerer extends Enemy{
 
     @Override
     public void interact(PlayerCharacter playerCharacter) {
-        System.out.println("I am a Sorcerer");
+        System.out.println("You encounter a Sorcerer, watch out!");
+        System.out.println(this);
     }
 }

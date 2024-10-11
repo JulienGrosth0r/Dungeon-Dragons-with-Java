@@ -10,6 +10,7 @@ public class IronShield extends DefensiveGear {
 
     @Override
     public void interact(PlayerCharacter playerCharacter) {
-        System.out.println("I am an Iron Shield");
+        System.out.println("You found an Iron Shield, made of the ironest...iron?");
+        System.out.println(this);
     }
 }

@@ -11,6 +11,7 @@ public class FireBall extends OffensiveGear {
 
     @Override
     public void interact(PlayerCharacter playerCharacter) {
-        System.out.println("I am a Fireball");
+        System.out.println("You found the Fireball spell, it's getting hot in here!");
+        System.out.println(this);
     }
 }

@@ -11,6 +11,7 @@ public class IronSword extends OffensiveGear {
 
     @Override
     public void interact(PlayerCharacter playerCharacter) {
-        System.out.println("I am an Iron Sword");
+        System.out.println("You found an Iron Sword! Sharp as a razor.");
+        System.out.println(this);
     }
 }

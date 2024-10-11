@@ -35,6 +35,9 @@ public abstract class OffensiveGear implements Interactable {
     }
 
     public String toString() {
-        return "OFFENCE : \nName: " + this.name + "\nAttack Level: " + this.attackLevel + "\n";
+        return "OFFENCE : \n" +
+                "Name: " + this.name + "\n" +
+                "Attack Level: " +"+" + this.attackLevel + " to your Attack Points" + "\n"
+                + "-------------------------";
     }
 }

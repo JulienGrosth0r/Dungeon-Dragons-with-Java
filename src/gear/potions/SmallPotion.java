@@ -9,6 +9,7 @@ public class SmallPotion extends Potion {
 
     @Override
     public void interact(PlayerCharacter playerCharacter) {
-        System.out.println("I am a Small Potion");
+        System.out.println("You have found a small potion!");
+        System.out.println(this);
     }
 }

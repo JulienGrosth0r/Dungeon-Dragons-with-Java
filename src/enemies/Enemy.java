@@ -41,6 +41,7 @@ public abstract class Enemy implements Interactable {
         return "ENEMY CHARACTER : \n"
                 + "Name: " + enemyName + "\n"
                 + "Hit Points: " + enemyHP + "\n"
-                + "Attack Points: " + enemyAP;
+                + "Attack Points: " + enemyAP + "\n"
+                + "-------------------------";
     }
 }

@@ -35,6 +35,10 @@ public abstract class DefensiveGear implements Interactable {
     }
 
     public String toString() {
-        return "DEFENCE : \nName: " + this.name + "\nDefence Level: " + this.defenceLevel + "\n";
+        return "DEFENCE : \n" +
+                "Name: " + this.name + "\n" +
+                "Defence Level: " +"+" + this.defenceLevel + " to your Defense Points" + "\n"
+                + "-------------------------";
+
     }
 }

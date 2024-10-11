@@ -10,6 +10,7 @@ public class LightningBolt extends OffensiveGear {
 
     @Override
     public void interact(PlayerCharacter playerCharacter) {
-        System.out.println("I am a Lightning Bolt");
+        System.out.println("You found the Lightning Bolt spell, a most shocking experience!");
+        System.out.println(this);
     }
 }

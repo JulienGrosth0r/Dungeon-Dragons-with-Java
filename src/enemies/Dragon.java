@@ -9,6 +9,7 @@ public class Dragon extends Enemy{
 
     @Override
     public void interact(PlayerCharacter playerCharacter) {
-        System.out.println("I am a Dragon");
+        System.out.println("You encounter a fearsome Dragon, brace yourself!");
+        System.out.println(this);
     }
 }

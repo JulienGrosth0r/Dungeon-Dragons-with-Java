@@ -18,7 +18,9 @@ import gear.warriorGear.IronShield;
 import gear.warriorGear.IronSword;
 import gear.warriorGear.Mace;
 
+import javax.crypto.Mac;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Objects;
 
 public class Game {
@@ -37,12 +39,15 @@ public class Game {
 
     public void runGame() {
         fillBoard(board);
+        Collections.shuffle(board);
         createCharacter(menu.getUserNameOfThePlayer(), menu.getTypeOfThePlayer());
         while (playerPosition != 64) {
             int choice = menu.gameMenu();
             executeChoiceMenu(choice);
             movePlayer();
-            interactWithCase(playerPosition, player);
+            if (playerPosition < 64) {
+                interactWithCase(playerPosition, player);  // Interagir avec la case uniquement si le joueur n'a pas encore atteint 64
+            }
             wait(400);
         }
         menu.victoryText();
@@ -58,71 +63,64 @@ public class Game {
     }
 
     private void fillBoard(ArrayList board) {
-        board.add(new LightningBolt());  // Case 1
-        board.add(new Mace());           // Case 2
-        board.add(new Goblin());         // Case 3
-        board.add(new LightningBolt());  // Case 4
-        board.add(new Mace());           // Case 5
-        board.add(new Goblin());         // Case 6
-        board.add(new SmallPotion());    // Case 7
-        board.add(new LightningBolt());  // Case 8
-        board.add(new Goblin());         // Case 9
-        board.add(new Sorcerer());       // Case 10
-        board.add(new Mace());           // Case 11
-        board.add(new Goblin());         // Case 12
-        board.add(new SmallPotion());    // Case 13
-        board.add(new CaseVide());       // Case 14
-        board.add(new Goblin());         // Case 15
-        board.add(new CaseVide());       // Case 16
-        board.add(new LightningBolt());  // Case 17
-        board.add(new Goblin());         // Case 18
-        board.add(new IronSword());      // Case 19
-        board.add(new Sorcerer());       // Case 20
-        board.add(new Goblin());         // Case 21
-        board.add(new Mace());           // Case 22
-        board.add(new LightningBolt());  // Case 23
-        board.add(new Goblin());         // Case 24
-        board.add(new Sorcerer());       // Case 25
-        board.add(new IronSword());      // Case 26
-        board.add(new Goblin());         // Case 27
-        board.add(new LargePotion());    // Case 28
-        board.add(new CaseVide());       // Case 29
-        board.add(new Goblin());         // Case 30
-        board.add(new SmallPotion());    // Case 31
-        board.add(new Sorcerer());       // Case 32
-        board.add(new SmallPotion());    // Case 33
-        board.add(new CaseVide());       // Case 34
-        board.add(new Sorcerer());       // Case 35
-        board.add(new Sorcerer());       // Case 36
-        board.add(new Sorcerer());       // Case 37
-        board.add(new Mace());           // Case 38
-        board.add(new SmallPotion());    // Case 39
-        board.add(new Sorcerer());       // Case 40
-        board.add(new LargePotion());    // Case 41
-        board.add(new IronSword());      // Case 42
-        board.add(new SmallPotion());    // Case 43
-        board.add(new Sorcerer());       // Case 44
-        board.add(new Dragon());         // Case 45
-        board.add(new CaseVide());       // Case 46
-        board.add(new Sorcerer());       // Case 47
-        board.add(new FireBall());       // Case 48
-        board.add(new FireBall());       // Case 49
-        board.add(new CaseVide());       // Case 50
-        board.add(new CaseVide());       // Case 51
-        board.add(new Dragon());         // Case 52
-        board.add(new IronSword());      // Case 53
-        board.add(new CaseVide());       // Case 54
-        board.add(new CaseVide());       // Case 55
-        board.add(new Dragon());         // Case 56
-        board.add(new CaseVide());       // Case 57
-        board.add(new CaseVide());       // Case 58
-        board.add(new CaseVide());       // Case 59
-        board.add(new CaseVide());       // Case 60
-        board.add(new CaseVide());       // Case 61
-        board.add(new Dragon());         // Case 62
-        board.add(new CaseVide());       // Case 63
-        board.add(new CaseVide());       // Case 64
+
+        // Spells
+        int lightningBoltQty = 5;
+        int fireballQty = 2;
+        int magicBubbleQty = 3;
+
+        for (int i = 0; i < lightningBoltQty; i++) {
+            board.add(new LightningBolt());
+        }
+        for (int i = 0; i < fireballQty; i++) {
+            board.add(new FireBall());
+        }
+        for (int i = 0; i < magicBubbleQty; i++) {
+            board.add(new MagicBubble());
+        }
+
+        //Weapons
+        int maceQty = 5;
+        int swordQty = 5;
+        int shieldQty = 3;
+
+        for (int i = 0; i < maceQty; i++) {
+            board.add(new Mace());
+        }
+        for (int i = 0; i < swordQty; i++) {
+            board.add(new IronSword());
+        }
+        for (int i = 0; i < shieldQty; i++) {
+            board.add(new IronShield());
+        }
+
+        //Potions
+        int smallPotionQty = 6;
+        int largePotionQty = 2;
+
+        for (int i = 0; i < smallPotionQty; i++) {
+            board.add(new SmallPotion());
+        }
+        for (int i = 0; i < largePotionQty; i++) {
+            board.add(new LargePotion());
+        }
+
+        //Enemies
+        int goblinQty = 10;
+        int sorcererQty = 10;
+        int dragonQty = 4;
+
+        for (int i = 0; i < goblinQty; i++) {
+            board.add(new Goblin());
+        }
+        for (int i = 0; i < sorcererQty; i++) {
+            board.add(new Sorcerer());
+        }
+        for (int i = 0; i < dragonQty; i++) {
+            board.add(new Dragon());
+        }
     }
+
     private void createCharacter(String name, String type) {
 
         switch (type) {
@@ -134,8 +132,8 @@ public class Game {
                 break;
         }
     }
-    private void executeChoiceMenu(int choice) {
 
+    private void executeChoiceMenu(int choice) {
         switch (choice) {
             case 1:
                 wait(300);
@@ -162,6 +160,7 @@ public class Game {
                 executeChoiceMenu(menu.gameMenu());
         }
     }
+
     private void endGameChoices(int choice) {
 
         switch (choice) {
@@ -181,11 +180,13 @@ public class Game {
     private int getRandom(int min, int max) {
         return (int) (Math.random() * (max - min + 1)) + min;
     }
+
     public int rollDie() {
         int diceRoll = getRandom(1, 6);  // Lancer un dé à 6 faces
         System.out.println("Hero's dice roll: " + diceRoll);
         return diceRoll;
     }
+
     public void movePlayer() {
         int diceRoll = rollDie();  // Lancer le dé
         playerPosition += diceRoll;  // Avancer le joueur
@@ -194,8 +195,10 @@ public class Game {
         if (playerPosition >= 64) {
             playerPosition = 64;  // Limiter à 64
             System.out.println("Congratulations! You've reached the end of the game at position " + playerPosition + "!");
+            System.out.println("-------------------------");
         } else {
             System.out.println("Player is now at position: " + playerPosition + "/64");
+            System.out.println("-------------------------");
         }
     }
 

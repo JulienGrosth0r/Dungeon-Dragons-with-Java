@@ -9,6 +9,7 @@ public class Goblin extends Enemy{
 
     @Override
     public void interact(PlayerCharacter playerCharacter) {
-        System.out.println("I am a Goblin");
+        System.out.println("You encounter a Goblin! Easy peasy!");
+        System.out.println(this);
     }
 }

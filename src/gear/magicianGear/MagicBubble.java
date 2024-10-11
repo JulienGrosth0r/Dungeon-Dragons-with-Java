@@ -10,6 +10,7 @@ public class MagicBubble extends DefensiveGear {
 
     @Override
     public void interact(PlayerCharacter playerCharacter) {
-        System.out.println("I am a Magic Bubble");
+        System.out.println("You found the Magic Bubble spell, perfect for deflecting enemy attacks.");
+        System.out.println(this);
     }
 }

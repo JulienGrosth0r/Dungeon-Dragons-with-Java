@@ -84,7 +84,10 @@ public class Menu {
     }
 
     public void victoryText() {
-        System.out.println("Winner winner chicken dinner! You have defeated the dungeon!");
+        System.out.println(
+                  "************************************************************ \n"
+                + "Winner winner chicken dinner! You have defeated the dungeon! \n"
+                + "************************************************************");
     }
 }
 
