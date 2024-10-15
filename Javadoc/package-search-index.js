@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"Character"},{"l":"Gear"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"character"},{"l":"enemies"},{"l":"gear"},{"l":"gear.magicianGear"},{"l":"gear.potions"},{"l":"gear.warriorGear"}];updateSearchResults();

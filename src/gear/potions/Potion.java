@@ -25,7 +25,8 @@ public abstract class Potion implements Interactable {
     }
 
     public String toString() {
-        return "POTION : \n"
+        return    "-------------------------" + "\n"
+                + "POTION : \n"
                 + "Potion type: " + potionName + "\n"
                 + "Heal: " + "+" + heal + "HP" + "\n"
                 + "-------------------------";

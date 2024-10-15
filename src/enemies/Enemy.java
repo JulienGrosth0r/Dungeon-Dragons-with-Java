@@ -38,7 +38,8 @@ public abstract class Enemy implements Interactable {
     }
 
     public String toString() {
-        return "ENEMY CHARACTER : \n"
+        return  "-------------------------" + "\n"
+                + "ENEMY CHARACTER : \n"
                 + "Name: " + enemyName + "\n"
                 + "Hit Points: " + enemyHP + "\n"
                 + "Attack Points: " + enemyAP + "\n"

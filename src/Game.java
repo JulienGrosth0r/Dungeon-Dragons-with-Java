@@ -23,24 +23,43 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
 
-public class Game {
-    private int playerPosition;  // Position actuelle du joueur
-    private ArrayList<Interactable> board;
-    PlayerCharacter player;
-    Menu menu;
+import exceptions.InvalidCharacterTypeException;
 
-    // Constructeur pour initialiser la position du joueur
+/**
+ * The main class that manages the game logic.
+ */
+public class Game {
+    private int playerPosition;
+    private final ArrayList<Interactable> board;
+    private PlayerCharacter player;
+    private final Menu menu;
+
+    /**
+     * Constructor that initializes the player's starting position and sets up the game board.
+     */
     public Game() {
         this.playerPosition = 0;  // Commencer sur la case 0
         this.menu = new Menu();
         this.board = new ArrayList<>();
-        runGame();
     }
 
+    /**
+     * Runs the game loop. The player rolls the dice, moves, and interacts with the board
+     * until they reach position 64. After reaching position 64, the victory text is displayed,
+     * and the player can choose to replay or quit.
+     */
     public void runGame() {
-        fillBoard(board);
+        fillBoard();
         Collections.shuffle(board);
-        createCharacter(menu.getUserNameOfThePlayer(), menu.getTypeOfThePlayer());
+
+        try {
+            createCharacter(menu.getUserNameOfThePlayer(), menu.getTypeOfThePlayer());
+        } catch (InvalidCharacterTypeException e) {
+            // Afficher le message d'erreur et quitter le jeu
+            System.out.println(e.getMessage());
+            return;  // Fin du jeu si un type de personnage invalide est fourni
+        }
+
         while (playerPosition != 64) {
             int choice = menu.gameMenu();
             executeChoiceMenu(choice);
@@ -62,7 +81,7 @@ public class Game {
         }
     }
 
-    private void fillBoard(ArrayList board) {
+    private void fillBoard() {
 
         // Spells
         int lightningBoltQty = 5;
@@ -79,7 +98,7 @@ public class Game {
             board.add(new MagicBubble());
         }
 
-        //Weapons
+        //Weapons & Shield
         int maceQty = 5;
         int swordQty = 5;
         int shieldQty = 3;
@@ -119,9 +138,16 @@ public class Game {
         for (int i = 0; i < dragonQty; i++) {
             board.add(new Dragon());
         }
+
+        // Empty rooms
+        int caseVide =  9;
+
+        for (int i = 0; i < caseVide; i++) {
+            board.add(new CaseVide());
+        }
     }
 
-    private void createCharacter(String name, String type) {
+    private void createCharacter(String name, String type) throws InvalidCharacterTypeException {
 
         switch (type) {
             case "Warrior":
@@ -130,6 +156,8 @@ public class Game {
             case "Magician":
                 player = new Magician(name);
                 break;
+            default:
+                throw new InvalidCharacterTypeException("This is an invalid character type: " + type + "ERRORERRORERROR");
         }
     }
 
@@ -149,7 +177,7 @@ public class Game {
 
             case 3:
                 wait(300);
-                System.out.println("Your soul evaporates into the nether... Until we meet again!");
+                System.out.println("Your soul evaporates into the nether... Until we meet again, hero!");
                 System.exit(0);
                 break;
 
@@ -168,7 +196,7 @@ public class Game {
                 runGame();  // Réinitialiser le jeu
 
             case 2:
-                System.out.println("Your soul evaporates into the nether... Until we meet again!");
+                System.out.println("Your soul evaporates into the nether... Until we meet again, hero!");
                 System.exit(0);  // Quitter le programme
 
             default:
@@ -181,12 +209,21 @@ public class Game {
         return (int) (Math.random() * (max - min + 1)) + min;
     }
 
+    /**
+     * Rolls a die and returns a random number between 1 and 6.
+     *
+     * @return the result of the dice roll, a number between 1 and 6.
+     */
     public int rollDie() {
         int diceRoll = getRandom(1, 6);  // Lancer un dé à 6 faces
         System.out.println("Hero's dice roll: " + diceRoll);
         return diceRoll;
     }
 
+    /**
+     * Moves the player based on the result of the dice roll. The player cannot move
+     * beyond position 64, and a message is displayed when the player reaches the end.
+     */
     public void movePlayer() {
         int diceRoll = rollDie();  // Lancer le dé
         playerPosition += diceRoll;  // Avancer le joueur

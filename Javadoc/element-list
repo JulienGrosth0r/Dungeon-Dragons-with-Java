@@ -1,3 +1,7 @@
 unnamed package
 character
+enemies
 gear
+gear.magicianGear
+gear.potions
+gear.warriorGear

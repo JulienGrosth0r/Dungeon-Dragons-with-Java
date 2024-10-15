@@ -27,11 +27,9 @@ public abstract class PlayerCharacter {
         this.type = type;
     }
 
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -39,7 +37,6 @@ public abstract class PlayerCharacter {
     public String getType() {
         return type;
     }
-
     public void setType(String type) {
         this.type = type;
     }
@@ -47,7 +44,6 @@ public abstract class PlayerCharacter {
     public int getHP() {
         return HP;
     }
-
     public void setHP(int HP) {
         this.HP = HP;
     }
@@ -55,11 +51,9 @@ public abstract class PlayerCharacter {
     public int getAP() {
         return AP;
     }
-
     public void setAP(int AP) {
         this.AP = AP;
     }
-
 
     public String toString() {
         return "PLAYER CHARACTER : \n"

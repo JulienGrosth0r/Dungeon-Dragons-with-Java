@@ -58,7 +58,7 @@ public class Menu {
             }
         }
 
-        return playerType; // Retourner le type pour le passer au Character.PlayerCharacter
+        return playerType;
     }
 
     // Méthode pour afficher le menu de jeu
