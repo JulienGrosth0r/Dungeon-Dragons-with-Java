@@ -57,7 +57,7 @@ public class Game {
         } catch (InvalidCharacterTypeException e) {
             // Afficher le message d'erreur et quitter le jeu
             System.out.println(e.getMessage());
-            return;  // Fin du jeu si un type de personnage invalide est fourni
+            Main.main(null);
         }
 
         while (playerPosition != 64) {
@@ -157,7 +157,7 @@ public class Game {
                 player = new Magician(name);
                 break;
             default:
-                throw new InvalidCharacterTypeException("This is an invalid character type: " + type + "ERRORERRORERROR");
+                throw new InvalidCharacterTypeException("ERRORERRORERROR This is an invalid character type: " + type + " ERRORERRORERROR");
         }
     }
 

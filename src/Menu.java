@@ -37,7 +37,8 @@ public class Menu {
         while (true) {  // Boucle infinie jusqu'à une entrée valide
             System.out.println("Choose your class, hero...\n"
                     + "1) Choose 1 for WARRIOR \n"
-                    + "2) Choose 2 for MAGICIAN \n");
+                    + "2) Choose 2 for MAGICIAN \n"
+                    + "3) Choose 3 for BARD \n");
 
             int choice = scanner.nextInt();
 
@@ -52,6 +53,12 @@ public class Menu {
                 System.out.println("You chose MAGICIAN\n"
                         + "An expert in arcane magics, magnificent!");
                 playerType = "Magician"; // Type du joueur
+                break;
+            } else if (choice == 3) {
+                wait(300);
+                System.out.println("You chose BARD\n"
+                + "Quite the useless fellow in a dungeon...");
+                playerType = "Bard";
                 break;
             } else {
                 System.out.println("This class does not exist, try again...");
@@ -85,9 +92,9 @@ public class Menu {
 
     public void victoryText() {
         System.out.println(
-                  "************************************************************ \n"
-                + "Winner winner chicken dinner! You have defeated the dungeon! \n"
-                + "************************************************************");
+                "************************************************************ \n"
+                        + "Winner winner chicken dinner! You have defeated the dungeon! \n"
+                        + "************************************************************");
     }
 }
 
