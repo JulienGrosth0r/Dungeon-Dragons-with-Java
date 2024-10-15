@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
 import character.PlayerCharacter;
+import enemies.Enemy;
+import gear.potions.Potion;
 
 public class Menu {
     private Scanner scanner;
-    private PlayerCharacter player;  // Instance du joueur
 
     // Constructeur
     public Menu() {
@@ -57,7 +58,7 @@ public class Menu {
             } else if (choice == 3) {
                 wait(300);
                 System.out.println("You chose BARD\n"
-                + "Quite the useless fellow in a dungeon...");
+                        + "Quite the useless fellow in a dungeon...");
                 playerType = "Bard";
                 break;
             } else {
@@ -79,6 +80,18 @@ public class Menu {
             return scanner.nextInt();
         }
     }
+
+    public void enemyInteractions(Enemy enemy, PlayerCharacter playerCharacter) {
+        System.out.println("The " + enemy.getEnemyName() + " hits you for " + enemy.getEnemyAP() + "!");
+        System.out.println("You currently have " + playerCharacter.getHP() + " HP left.");
+    }
+
+    public void potionInteractions(Potion potion, PlayerCharacter playerCharacter) {
+        System.out.println("The " + potion.getPotionName() + " heals you for " + potion.getHeal() + "!");
+        System.out.println("Your HP is now of " + playerCharacter.getHP() + ".");
+    }
+
+
 
     // Méthode pour proposer de rejouer ou quitter
     public int offerReplay() {

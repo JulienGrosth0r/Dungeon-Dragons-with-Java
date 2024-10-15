@@ -10,7 +10,7 @@ public class Mace extends OffensiveGear {
 
     @Override
     public void interact(PlayerCharacter playerCharacter) {
-        System.out.println("You found a mace, perfect for beating enemies to a pulp.");
+        System.out.println("You found a " + getName() + ", perfect for beating enemies to a pulp.");
         System.out.println(this);
     }
 }

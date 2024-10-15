@@ -55,7 +55,7 @@ public class Game {
         try {
             createCharacter(menu.getUserNameOfThePlayer(), menu.getTypeOfThePlayer());
         } catch (InvalidCharacterTypeException e) {
-            // Afficher le message d'erreur et quitter le jeu
+            // Afficher le message d'erreur
             System.out.println(e.getMessage());
             Main.main(null);
         }
@@ -140,7 +140,7 @@ public class Game {
         }
 
         // Empty rooms
-        int caseVide =  9;
+        int caseVide = 9;
 
         for (int i = 0; i < caseVide; i++) {
             board.add(new CaseVide());
@@ -157,7 +157,11 @@ public class Game {
                 player = new Magician(name);
                 break;
             default:
-                throw new InvalidCharacterTypeException("ERRORERRORERROR This is an invalid character type: " + type + " ERRORERRORERROR");
+                throw new InvalidCharacterTypeException(
+                        "************************************************************ \n"
+                                + "ERRORERRORERROR This is an invalid character type: " + type + " ERRORERRORERROR \n"
+                                + "************************************************************ \n"
+                                + "...");
         }
     }
 
@@ -242,5 +246,13 @@ public class Game {
     private void interactWithCase(int playerPosition, PlayerCharacter player) {
         Interactable objet = board.get(playerPosition);
         objet.interact(player);
+        if (objet instanceof Enemy) {
+            Interactable enemy = board.get(playerPosition);
+            menu.enemyInteractions((Enemy) enemy, player);
+        } else if (objet instanceof Potion) {
+            Interactable potion = board.get(playerPosition);
+            menu.potionInteractions((Potion) potion, player);
+
+        }
     }
 }

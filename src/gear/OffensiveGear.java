@@ -13,6 +13,7 @@ public abstract class OffensiveGear implements Interactable {
     public String getName() {
         return this.name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -20,6 +21,7 @@ public abstract class OffensiveGear implements Interactable {
     public String getItem() {
         return this.item;
     }
+
     public void setItem(String item) {
         this.item = item;
     }
@@ -27,15 +29,16 @@ public abstract class OffensiveGear implements Interactable {
     public int getAttackLevel() {
         return this.attackLevel;
     }
+
     public void setAttackLevel(int attackLevel) {
         this.attackLevel = attackLevel;
     }
 
     public String toString() {
-        return  "-------------------------" + "\n"
+        return "-------------------------" + "\n"
                 + "OFFENCE : \n" +
                 "Name: " + this.name + "\n" +
-                "Attack Level: " +"+" + this.attackLevel + " to your Attack Points" + "\n"
+                "Attack Level: " + "+" + this.attackLevel + " to your Attack Points" + "\n"
                 + "-------------------------";
     }
 }

@@ -13,7 +13,7 @@ public abstract class Enemy implements Interactable {
         this.enemyAP = enemyAP;
     }
 
-    public String getEnemyName(){
+    public String getEnemyName() {
         return this.enemyName;
     }
 
@@ -38,7 +38,7 @@ public abstract class Enemy implements Interactable {
     }
 
     public String toString() {
-        return  "-------------------------" + "\n"
+        return "-------------------------" + "\n"
                 + "ENEMY CHARACTER : \n"
                 + "Name: " + enemyName + "\n"
                 + "Hit Points: " + enemyHP + "\n"

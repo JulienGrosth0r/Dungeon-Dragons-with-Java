@@ -14,18 +14,21 @@ public abstract class Potion implements Interactable {
     public String getPotionName() {
         return potionName;
     }
+
     public void setPotionName(String potionName) {
         this.potionName = potionName;
     }
+
     public int getHeal() {
         return heal;
     }
+
     public void setHeal(int heal) {
         this.heal = heal;
     }
 
     public String toString() {
-        return    "-------------------------" + "\n"
+        return "-------------------------" + "\n"
                 + "POTION : \n"
                 + "Potion type: " + potionName + "\n"
                 + "Heal: " + "+" + heal + "HP" + "\n"
