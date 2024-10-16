@@ -16,6 +16,8 @@ public class IronShield extends DefensiveGear {
         if (this.matchableDefensiveType.equals(playerCharacter.getType())) {
             playerCharacter.setDefensiveGear(new IronShield());
             System.out.println("You pick up: " + playerCharacter.getDefensiveGear().getName() + ".");
+            System.out.println("The " + getName() + " increases your HP of " + getDefenceLevel() + "!");
+            System.out.println("Your HP are now of " + playerCharacter.getHP() + " + " + getDefenceLevel() + ".");
         } else {
             System.out.println("You cannot use this.");
         }

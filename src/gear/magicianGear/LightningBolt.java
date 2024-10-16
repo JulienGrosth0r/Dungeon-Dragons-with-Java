@@ -2,7 +2,6 @@ package gear.magicianGear;
 
 import character.PlayerCharacter;
 import gear.OffensiveGear;
-import gear.warriorGear.IronSword;
 
 public class LightningBolt extends OffensiveGear {
     public LightningBolt() {
@@ -16,6 +15,8 @@ public class LightningBolt extends OffensiveGear {
         if (this.matchableOffensiveType.equals(playerCharacter.getType())) {
             playerCharacter.setOffensiveGear(new LightningBolt());
             System.out.println("You pick up: " + playerCharacter.getOffensiveGear().getName() + ".");
+            System.out.println("The " + getName() + " increases your AP of " + getAttackLevel() + "!");
+            System.out.println("Your AP are now of " + playerCharacter.getAP() + " + " + getAttackLevel() + ".");
         } else {
             System.out.println("You cannot use this.");
         }

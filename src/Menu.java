@@ -99,14 +99,14 @@ public class Menu {
     }
 
     public void offenseInteractions(OffensiveGear offensiveGear, PlayerCharacter playerCharacter) {
-        System.out.println("The " + offensiveGear.getName() + " increases your AP of " + offensiveGear.getAttackLevel() + "!");
-        System.out.println("Your AP are now of " + playerCharacter.getAP() + " + " + offensiveGear.getAttackLevel() + ".");
+//        System.out.println("The " + offensiveGear.getName() + " increases your AP of " + offensiveGear.getAttackLevel() + "!");
+//        System.out.println("Your AP are now of " + playerCharacter.getAP() + " + " + offensiveGear.getAttackLevel() + ".");
         System.out.println("-------------------------");
     }
 
     public void defenseInteractions(DefensiveGear defensiveGear, PlayerCharacter playerCharacter) {
-        System.out.println("The " + defensiveGear.getName() + " increases your HP of " + defensiveGear.getDefenceLevel() + "!");
-        System.out.println("Your HP are now of " + playerCharacter.getHP() + " + " + defensiveGear.getDefenceLevel() + ".");
+//        System.out.println("The " + defensiveGear.getName() + " increases your HP of " + defensiveGear.getDefenceLevel() + "!");
+//        System.out.println("Your HP are now of " + playerCharacter.getHP() + " + " + defensiveGear.getDefenceLevel() + ".");
         System.out.println("-------------------------");
     }
 

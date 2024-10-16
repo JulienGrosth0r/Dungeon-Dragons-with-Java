@@ -1,9 +1,7 @@
 package gear.warriorGear;
 
 import character.PlayerCharacter;
-import character.Warrior;
 import gear.OffensiveGear;
-import gear.magicianGear.FireBall;
 
 public class WoodenClub extends OffensiveGear {
     public WoodenClub() {
@@ -17,6 +15,8 @@ public class WoodenClub extends OffensiveGear {
         if (this.matchableOffensiveType.equals(playerCharacter.getType())) {
             playerCharacter.setOffensiveGear(new WoodenClub());
             System.out.println("You pick up: " + playerCharacter.getOffensiveGear().getName() + ".");
+            System.out.println("The " + getName() + " increases your AP of " + getAttackLevel() + "!");
+            System.out.println("Your AP are now of " + playerCharacter.getAP() + " + " + getAttackLevel() + ".");
         } else {
             System.out.println("You cannot use this.");
         }
