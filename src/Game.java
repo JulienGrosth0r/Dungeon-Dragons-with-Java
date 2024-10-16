@@ -51,9 +51,10 @@ public class Game {
     public void runGame() {
         fillBoard();
         Collections.shuffle(board);
-
+        String playerName = menu.getUserNameOfThePlayer();
+        String playerType = menu.getTypeOfThePlayer();
         try {
-            createCharacter(menu.getUserNameOfThePlayer(), menu.getTypeOfThePlayer());
+            createCharacter(playerName, playerType);
         } catch (InvalidCharacterTypeException e) {
             // Afficher le message d'erreur
             System.out.println(e.getMessage());
@@ -197,12 +198,12 @@ public class Game {
 
         switch (choice) {
             case 1:
-                runGame();  // Réinitialiser le jeu
-
+                Main.main(null);  // Réinitialiser le jeu
+                break;
             case 2:
                 System.out.println("Your soul evaporates into the nether... Until we meet again, hero!");
                 System.exit(0);  // Quitter le programme
-
+                break;
             default:
                 System.out.println("Invalid choice, please try again.");
                 endGameChoices(menu.offerReplay());
@@ -252,7 +253,12 @@ public class Game {
         } else if (objet instanceof Potion) {
             Interactable potion = board.get(playerPosition);
             menu.potionInteractions((Potion) potion, player);
-
+        } else if (objet instanceof OffensiveGear) {
+            Interactable offensiveGear = board.get(playerPosition);
+            menu.offenseInteractions((OffensiveGear) offensiveGear, player);
+        } else if (objet instanceof DefensiveGear) {
+            Interactable defensiveGear = board.get(playerPosition);
+            menu.defenseInteractions((DefensiveGear) defensiveGear, player);
         }
     }
 }

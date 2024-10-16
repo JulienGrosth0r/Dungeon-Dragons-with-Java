@@ -8,7 +8,7 @@ public abstract class PlayerCharacter {
     private String name;
     private String type;
     private int HP;
-    private int AP;
+    private final int AP;
     protected OffensiveGear offensiveGear;
     protected DefensiveGear defensiveGear;
     protected Potion potion;
@@ -19,12 +19,13 @@ public abstract class PlayerCharacter {
     }
 
     public PlayerCharacter(String name) {
-        this(name, "Warrior");
+        this(name, "Warrior", 10);
     }
 
-    public PlayerCharacter(String name, String type) {
+    public PlayerCharacter(String name, String type, int ap) {
         this.name = name;
         this.type = type;
+        this.AP = ap;
     }
 
     public String getName() {
@@ -55,16 +56,28 @@ public abstract class PlayerCharacter {
         return AP;
     }
 
-    public void setAP(int AP) {
-        this.AP = AP;
+    public OffensiveGear getOffensiveGear() {
+        return offensiveGear;
+    }
+
+    public void setOffensiveGear(OffensiveGear offensiveGear) {
+        this.offensiveGear = offensiveGear;
+    }
+
+    public DefensiveGear getDefensiveGear() {
+        return defensiveGear;
+    }
+
+    public void setDefensiveGear(DefensiveGear defensiveGear) {
+        this.defensiveGear = defensiveGear;
     }
 
     public String toString() {
         return "PLAYER CHARACTER : \n"
                 + "Name: " + name + "\n"
                 + "Type: " + type + "\n"
-                + "Hit Points: " + HP + "\n"
-                + "Attack Points: " + AP
+                + "Hit Points: " + HP + " + " + defensiveGear.getDefenceLevel() + "\n"
+                + "Attack Points: " + AP + " + " + offensiveGear.getAttackLevel()
                 + "\n\n" + offensiveGear.toString() + "\n"
                 + defensiveGear.toString() + "\n";
     }

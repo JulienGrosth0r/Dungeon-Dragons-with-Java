@@ -4,10 +4,12 @@ public abstract class DefensiveGear implements Interactable {
     private String item;
     private int defenceLevel;
     private String name;
+    protected String matchableDefensiveType;
 
-    public DefensiveGear(String name, int defenceLevel) {
+    public DefensiveGear(String name, int defenceLevel, String matchableDefensiveType) {
         this.name = name;
         this.defenceLevel = defenceLevel;
+        this.matchableDefensiveType = matchableDefensiveType;
     }
 
     public String getName() {
@@ -38,7 +40,7 @@ public abstract class DefensiveGear implements Interactable {
         return "-------------------------" + "\n"
                 + "DEFENCE : \n" +
                 "Name: " + this.name + "\n" +
-                "Defence Level: " + "+" + this.defenceLevel + " to your Defense Points" + "\n"
+                "Defence Level: " + "+" + this.defenceLevel + " to your Health Points" + "\n"
                 + "-------------------------";
 
     }

@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 import character.PlayerCharacter;
 import enemies.Enemy;
+import gear.DefensiveGear;
+import gear.OffensiveGear;
 import gear.potions.Potion;
 
 public class Menu {
@@ -84,14 +86,29 @@ public class Menu {
     public void enemyInteractions(Enemy enemy, PlayerCharacter playerCharacter) {
         System.out.println("The " + enemy.getEnemyName() + " hits you for " + enemy.getEnemyAP() + "!");
         System.out.println("You currently have " + playerCharacter.getHP() + " HP left.");
+        System.out.println("-------------------------");
+        System.out.println("You hit the " + enemy.getEnemyName() + " for " + (playerCharacter.getAP() + playerCharacter.getOffensiveGear().getAttackLevel()) + "!");
+        System.out.println("The " + enemy.getEnemyName() + " has " + enemy.getEnemyHP() + " HP left." );
+        System.out.println("-------------------------");
     }
 
     public void potionInteractions(Potion potion, PlayerCharacter playerCharacter) {
         System.out.println("The " + potion.getPotionName() + " heals you for " + potion.getHeal() + "!");
         System.out.println("Your HP is now of " + playerCharacter.getHP() + ".");
+        System.out.println("-------------------------");
     }
 
+    public void offenseInteractions(OffensiveGear offensiveGear, PlayerCharacter playerCharacter) {
+        System.out.println("The " + offensiveGear.getName() + " increases your AP of " + offensiveGear.getAttackLevel() + "!");
+        System.out.println("Your AP are now of " + playerCharacter.getAP() + " + " + offensiveGear.getAttackLevel() + ".");
+        System.out.println("-------------------------");
+    }
 
+    public void defenseInteractions(DefensiveGear defensiveGear, PlayerCharacter playerCharacter) {
+        System.out.println("The " + defensiveGear.getName() + " increases your HP of " + defensiveGear.getDefenceLevel() + "!");
+        System.out.println("Your HP are now of " + playerCharacter.getHP() + " + " + defensiveGear.getDefenceLevel() + ".");
+        System.out.println("-------------------------");
+    }
 
     // Méthode pour proposer de rejouer ou quitter
     public int offerReplay() {

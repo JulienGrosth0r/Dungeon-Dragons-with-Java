@@ -4,10 +4,12 @@ public abstract class OffensiveGear implements Interactable {
     private String item;
     private int attackLevel;
     private String name;
+    protected String matchableOffensiveType;
 
-    public OffensiveGear(String name, int attackLevel) {
+    public OffensiveGear(String name, int attackLevel, String matchableOffensiveType) {
         this.name = name;
         this.attackLevel = attackLevel;
+        this.matchableOffensiveType = matchableOffensiveType;
     }
 
     public String getName() {

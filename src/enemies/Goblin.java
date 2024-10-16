@@ -11,7 +11,7 @@ public class Goblin extends Enemy {
     public void interact(PlayerCharacter playerCharacter) {
         System.out.println("You encounter a Goblin! Easy peasy!");
         System.out.println(this);
-        playerCharacter.setHP(playerCharacter.getHP() - getEnemyAP());
-        setEnemyHP(playerCharacter.getAP() - getEnemyHP());
+        playerCharacter.setHP((playerCharacter.getHP() + playerCharacter.getDefensiveGear().getDefenceLevel()) - getEnemyAP());
+        setEnemyHP(getEnemyHP() - (playerCharacter.getAP() + playerCharacter.getOffensiveGear().getAttackLevel()));
     }
 }
