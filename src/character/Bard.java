@@ -2,7 +2,7 @@ package character;
 
 public class Bard extends PlayerCharacter {
     public Bard(String name) {
-        super(name, "Bard", 1);
+        super(name, "Bard");
         this.setHP(1);
     }
 }

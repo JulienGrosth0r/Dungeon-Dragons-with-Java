@@ -8,7 +8,7 @@ public abstract class PlayerCharacter {
     private String name;
     private String type;
     private int HP;
-    private final int AP;
+    private int AP;
     protected OffensiveGear offensiveGear;
     protected DefensiveGear defensiveGear;
     protected Potion potion;
@@ -19,13 +19,12 @@ public abstract class PlayerCharacter {
     }
 
     public PlayerCharacter(String name) {
-        this(name, "Warrior", 10);
+        this(name, "Warrior");
     }
 
-    public PlayerCharacter(String name, String type, int ap) {
+    public PlayerCharacter(String name, String type) {
         this.name = name;
         this.type = type;
-        this.AP = ap;
     }
 
     public String getName() {
@@ -54,6 +53,10 @@ public abstract class PlayerCharacter {
 
     public int getAP() {
         return AP;
+    }
+
+    public void setAP(int AP) {
+        this.AP = AP;
     }
 
     public OffensiveGear getOffensiveGear() {
