@@ -84,12 +84,16 @@ public class Menu {
     }
 
     public void enemyInteractions(Enemy enemy, PlayerCharacter playerCharacter) {
-        System.out.println("The " + enemy.getEnemyName() + " hits you for " + enemy.getEnemyAP() + "!");
-        System.out.println("You currently have " + playerCharacter.getHP() + " HP left.");
-        System.out.println("-------------------------");
         System.out.println("You hit the " + enemy.getEnemyName() + " for " + (playerCharacter.getAP() + playerCharacter.getOffensiveGear().getAttackLevel()) + "!");
         System.out.println("The " + enemy.getEnemyName() + " has " + enemy.getEnemyHP() + " HP left." );
         System.out.println("-------------------------");
+        if (enemy.getEnemyHP() > 0 ) {
+            System.out.println("The " + enemy.getEnemyName() + " hits you for " + enemy.getEnemyAP() + "!");
+            System.out.println("You currently have " + (playerCharacter.getHP() + " HP left."));
+            System.out.println("-------------------------");
+        }
+
+
     }
 
     public void potionInteractions(Potion potion, PlayerCharacter playerCharacter) {

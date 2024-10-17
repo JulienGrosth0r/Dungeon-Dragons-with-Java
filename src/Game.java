@@ -34,6 +34,7 @@ public class Game {
     private PlayerCharacter player;
     private final Menu menu;
 
+
     /**
      * Constructor that initializes the player's starting position and sets up the game board.
      */
@@ -250,6 +251,8 @@ public class Game {
         if (objet instanceof Enemy) {
             Interactable enemy = board.get(playerPosition);
             menu.enemyInteractions((Enemy) enemy, player);
+            isEnemyDead((Enemy) objet);
+            isPlayerDead();
         } else if (objet instanceof Potion) {
             Interactable potion = board.get(playerPosition);
             menu.potionInteractions((Potion) potion, player);
@@ -259,6 +262,23 @@ public class Game {
         } else if (objet instanceof DefensiveGear) {
             Interactable defensiveGear = board.get(playerPosition);
             menu.defenseInteractions((DefensiveGear) defensiveGear, player);
+        }
+    }
+
+    private void isPlayerDead() {
+        int playerHP = player.getHP();
+        if (playerHP <= 0) {
+            System.out.println("You bleed out in a pool of blood.");
+            System.out.println("-------------------------");
+            endGameChoices(menu.offerReplay());
+        }
+    }
+
+    private void isEnemyDead(Enemy enemy) {
+        int enemyHP = enemy.getEnemyHP();
+        if (enemyHP <=0) {
+            System.out.println("The " + enemy.getEnemyName() + " falls to the floor, dead.");
+            System.out.println("-------------------------");
         }
     }
 }

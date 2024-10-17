@@ -37,9 +37,6 @@ public abstract class Enemy implements Interactable {
         this.enemyAP = enemyAP;
     }
 
-    private void die() {
-        System.out.println(enemyName + " is dead. Well done!");
-    }
 
     public String toString() {
         return "-------------------------" + "\n"
