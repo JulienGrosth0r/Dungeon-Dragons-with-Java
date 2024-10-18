@@ -184,7 +184,7 @@ public class Game {
             case 3:
                 wait(300);
                 System.out.println("Your soul evaporates into the nether... Until we meet again, hero!");
-                System.exit(0);
+                endGameChoices(menu.offerReplay());
                 break;
 
             default:
@@ -202,7 +202,7 @@ public class Game {
                 Main.main(null);  // Réinitialiser le jeu
                 break;
             case 2:
-                System.out.println("Your soul evaporates into the nether... Until we meet again, hero!");
+                System.out.println("See you next time!");
                 System.exit(0);  // Quitter le programme
                 break;
             default:
@@ -276,7 +276,7 @@ public class Game {
 
     private void isEnemyDead(Enemy enemy) {
         int enemyHP = enemy.getEnemyHP();
-        if (enemyHP <=0) {
+        if (enemyHP <= 0) {
             System.out.println("The " + enemy.getEnemyName() + " falls to the floor, dead.");
             System.out.println("-------------------------");
         }
