@@ -1,2 +1,2 @@
-# JDR_D-D_Java
-Apprentissage de Java avec un jeu Dongeons &amp; Dragons!
+Learning JAVA with a Dungeon & Dragons inspired game via the console.  
+README in progress, head over to the dev branch for files :)
